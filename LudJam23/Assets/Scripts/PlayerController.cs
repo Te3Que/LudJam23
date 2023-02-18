@@ -2,47 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-[Header("Refrences")]
-[SerializeField] Transform player_Player;
-[SerializeField] Rigidbody rb;
-[SerializeField] Transform head;
-[SerializeField] Camera player_cam;
+    [Header("Player Info")]
+    [SerializeField]
+    private float playerSpeed = 2.0f;
+    [SerializeField]
+    private float jumpHeight = 1.0f;
+    [SerializeField]
+    private float gravityValue = -9.81f;   
+    [SerializeField] private CharacterController controller;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    
+    private InputManager inputManager;
 
-[Header("Configuration")]
-[SerializeField] float walk_Speed;
-[SerializeField] float run_Speed;
-[SerializeField] float jump_Force;
+    private void Start()
+    {
+        controller = gameObject.GetComponent<CharacterController>();
+        inputManager = InputManager.Instance;
+    }
 
-[Header("Player Stats")]
-[SerializeField] float player_Acurate_Velocity;
-[SerializeField] Vector3 player_Acurate_Position;
-[SerializeField] int player_Acurate_Health;
+    void Update()
+    {
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
 
-void Awake()
-{
-    rb = GetComponent<Rigidbody>();
-}
+        Vector2 movement = inputManager.GetPlayerMovement();
+        Vector3 move = new Vector3(movement.x, 0f, movement.y);
+        controller.Move(move * Time.deltaTime * playerSpeed);
 
-void FixedUpdate() 
-{
-    PlayerMovement();
-}
+        Debug.Log(movement.x);
 
-void PlayerMovement()
-{
-    Vector3 newVelocity = Vector3.up * rb.velocity.y;
-    float speed = Input.GetKey(KeyCode.LeftShift) ? run_Speed : walk_Speed;
-    newVelocity.x = Input.GetAxis("Horizontal") * speed;
-    newVelocity.z = Input.GetAxis("Vertical") * speed;
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+        }
 
-    rb.velocity = newVelocity;
-}
+        // Changes the height position of the player..
+        if (inputManager.PlayerJumped() && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
 
-void UpdatePlayerStats()
-{
-    player_Acurate_Position = player_Player.transform.position;
-}
-
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
+    }
 }

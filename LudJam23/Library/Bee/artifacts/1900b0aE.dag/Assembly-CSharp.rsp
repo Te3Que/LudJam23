@@ -373,6 +373,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/defaults/TutorialInfo/Scripts/Readme.cs"
+"Assets/Scripts/CinemachinePOVExtention.cs"
+"Assets/Scripts/InputManager.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerControls.cs"
 -langversion:9.0
