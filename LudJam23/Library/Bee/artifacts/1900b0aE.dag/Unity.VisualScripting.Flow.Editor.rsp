@@ -114,7 +114,10 @@
 -define:ENABLE_TERRAIN
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
+-define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
+-define:PACKAGE_INPUT_SYSTEM_EXISTS
+-define:PACKAGE_INPUT_SYSTEM_1_2_0_OR_NEWER_EXISTS
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"P:/Repo/github.com/Te3Que/LudJam23/LudJam23/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
@@ -345,6 +348,7 @@
 -r:"P:/Unity/2021.3.8f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Transactions.dll"
 -r:"P:/Unity/2021.3.8f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll"
 -r:"P:/Unity/2021.3.8f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.InputSystem.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.ref.dll"
