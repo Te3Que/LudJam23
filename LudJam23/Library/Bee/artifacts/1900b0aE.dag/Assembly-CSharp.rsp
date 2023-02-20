@@ -377,6 +377,8 @@
 "Assets/Scripts/InputManager.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerControls.cs"
+"Assets/Scripts/player_cam.cs"
+"Assets/Scripts/player_Move_Camera.cs"
 -langversion:9.0
 
 /deterministic
