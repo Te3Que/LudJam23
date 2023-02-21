@@ -1,0 +1,7 @@
+LudJam23/Library/PackageCache/com.unity.burst@1.7.3/.Runtime/libburst-llvm-12.dylib filter=lfs diff=lfs merge=lfs -text
+LudJam23/Library/PackageCache/com.unity.burst@1.7.3/.Runtime/hostmac/lld filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+LudJam23LibraryPackageCachecom.unity.burst@1.8.2.Runtimelibburst-llvm-14.dylib filter=lfs diff=lfs merge=lfs -text
+LudJam23LibraryPackageCachecom.unity.toolchain.win-x86_64-linux-x86_64@2.0.4data~payload.tar.7z filter=lfs diff=lfs merge=lfs -text
+*.dylib filter=lfs diff=lfs merge=lfs -text
+*.7z filter=lfs diff=lfs merge=lfs -text
