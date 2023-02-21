@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_cam : MonoBehaviour
+public class player_Cam : MonoBehaviour
 {
     [Header("Player Controll Settings")]
     [SerializeField]
@@ -11,8 +11,11 @@ public class player_cam : MonoBehaviour
     private float sensY;
     [SerializeField]
     private Transform orientation;
+    //[SerializeField]
+    //private Vector2 deltaInput;
+
     [SerializeField]
-    private Vector2 deltaInput;
+    private GameObject go_InputManager;
 
     private InputManager inputManager;
 
@@ -25,17 +28,16 @@ public class player_cam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         // Gets inputManager and binds deltaInput to mousedelta from inputsystem
-        inputManager = GetComponent<InputManager>();
+        inputManager = go_InputManager.GetComponent<InputManager>();
 
     }
 
     private void Update()
     {
         // Gets mouse input
-        deltaInput = inputManager.GetMouseDelta();
-        Debug.Log(deltaInput.x);
-        float mouseX = deltaInput.x * Time.deltaTime * sensX; 
-        float mouseY = deltaInput.y * Time.deltaTime * sensY; 
+        Vector2 deltaInput = inputManager.GetMouseDelta();
+        float mouseX = deltaInput.x * Time.fixedDeltaTime * sensX; 
+        float mouseY = deltaInput.y * Time.fixedDeltaTime * sensY; 
 
         yRotation += mouseX;
         xRotation += mouseY;
@@ -44,6 +46,6 @@ public class player_cam : MonoBehaviour
 
         // Rotates the player
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }
