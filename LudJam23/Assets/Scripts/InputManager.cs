@@ -43,4 +43,8 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Jump.triggered;
     }
+    public bool PlayerSprinted()
+    {
+        return playerControls.Player.Sprint.triggered;
+    }
 }
