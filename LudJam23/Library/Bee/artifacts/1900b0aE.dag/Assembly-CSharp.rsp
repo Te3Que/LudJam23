@@ -385,7 +385,6 @@
 "Assets/defaults/TutorialInfo/Scripts/Readme.cs"
 "Assets/Scripts/CinemachinePOVExtention.cs"
 "Assets/Scripts/InputManager.cs"
-"Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerControls.cs"
 "Assets/Scripts/player_Cam.cs"
 "Assets/Scripts/player_Movement.cs"
